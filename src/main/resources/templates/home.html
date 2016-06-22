@@ -3,24 +3,22 @@
     <title>Spring Microblog</title>
 </head>
 <body>
-{{^user}}
-<form action="/login" method="post">
-    <input type="text" placeholder="username" name="username"/>
-    <button type="submit">enter</button>
-</form>
-{{/user}}
-
-{{#user}}
 <form action="/logout" method ="post">
     <button type="submit">quit</button>
 </form>
 <br>
 <form action="/add-message" method="post">
-    <input type="text" name="message" placeholder="Write a message" size="75"/>
+    <input type="text" name="text" placeholder="Write a message" size="75"/>
     <button type="submit">Submit</button>
 </form>
 
-<h1>Messages by {{name}}:</h1>
+<form action="/edit-message" method="post">
+    <input type="number" name="editId" placeholder="#"/>
+    <input type="text" name="editText" placeholder="Message" />
+    <button type="submit">Edit</button>
+</form>
+
+<h1>Messages:</h1>
 
 <ol>
     {{#messages}}
@@ -33,6 +31,5 @@
     </li>
     {{/messages}}
 </ol>
-{{/user}}
 </body>
 </html>
