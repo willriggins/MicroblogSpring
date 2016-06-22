@@ -70,12 +70,12 @@ public class MicroblogSpringController {
         return "redirect:/";
     }
 
-//    @RequestMapping(path = "/edit-message", method = RequestMethod.POST);
-//    public String editMessage(String text, int id, HttpSession session) {
-//        String editId = (String) session.getAttribute("editId");
-//        id = Integer.valueOf(editId);
-//        Message msg = new Message(text);
-//        messages.save(msg);
-//    }
+    @RequestMapping(path = "/edit-message", method = RequestMethod.POST)
+    public String editMessage(String text, int id, HttpSession session) {
+        Message msg = new Message(id, text);
+        messages.save(msg);
+        session.setAttribute("message", msg);
+        return "redirect:/";
+    }
 
 }

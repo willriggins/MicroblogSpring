@@ -22,4 +22,9 @@ public class Message {
     public Message(String text) {
         this.text = text;
     }
+
+    public Message(int id, String text) {
+        this.id = id;
+        this.text = text;
+    }
 }

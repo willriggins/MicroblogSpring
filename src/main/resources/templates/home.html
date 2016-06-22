@@ -12,11 +12,6 @@
     <button type="submit">Submit</button>
 </form>
 
-<form action="/edit-message" method="post">
-    <input type="number" name="editId" placeholder="#"/>
-    <input type="text" name="editText" placeholder="Message" />
-    <button type="submit">Edit</button>
-</form>
 
 <h1>Messages:</h1>
 
@@ -24,10 +19,16 @@
     {{#messages}}
     <li>
         {{text}}
+        <form action="/edit-message" method="post" style="display: inline-block;">
+            <input type="hidden" name="id" value="{{id}}"/>
+            <input type="text" name="text" placeholder="New Message" />
+            <button type="submit">Edit</button>
+        </form>
         <form action="/delete-message" method="post" style="display: inline-block;">
             <input type="hidden" name="id" value="{{id}}"/>
             <button type="submit">Delete</button>
         </form>
+
     </li>
     {{/messages}}
 </ol>
